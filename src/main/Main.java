@@ -7,7 +7,7 @@ import colectioms.stack.Stack;
 public class Main {
     public static void main(String[] args) {
         Colection colection = new Queue();
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 10; i++){
             colection.push(i);
         }
         for (int i = 0; i < 1; i++){
