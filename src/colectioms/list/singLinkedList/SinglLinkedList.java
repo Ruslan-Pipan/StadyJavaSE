@@ -4,53 +4,41 @@ import colectioms.list.List;
 
 public class SinglLinkedList  implements List  {
     private DataList head;
-    private int index;
-
+    private int quentati;
     public SinglLinkedList(){
         this.head = null;
-        this.index = -1;
+        this.quentati = -1;
     }
 
     @Override
     public void addByIndex(int element, int index) {
         DataList elemenyЕqualsIndex = lockingForIndex(index);
         if (elemenyЕqualsIndex != null){
-            DataList newElement = new DataList(element,elemenyЕqualsIndex.getIndex());
+            DataList newElement = new DataList(element);
             DataList boxAfterElement = elemenyЕqualsIndex.getNext();
-            elemenyЕqualsIndex.setIndex(elemenyЕqualsIndex.getIndex() + 1);
             newElement.setNext(boxAfterElement);
             elemenyЕqualsIndex.setNext(newElement);
+            ++quentati;
             return;
+        }else if(index == quentati + 1) {
+            push(element);
+        }else {
+            System.out.println("Last index in which we add element is " + (quentati+1) );
         }
-        System.out.println("Haven't element.");
     }
 
     @Override
     public void remove(int index) {
-            if (index == head.getIndex()){
-                head = head.getNext();
-            }else if (index == 0){
-                DataList secondElement = lockingForIndex(1);
-                secondElement.setNext(null);
-                DataList element = head;
-                while (element != null){
-                    element.setIndex(element.getIndex()-1);
-                    element = element.getNext();
-                }
-            }else {
-                DataList elemenyЕqualsIndex = lockingForIndex(index);
-                if (elemenyЕqualsIndex != null){
-                    DataList beforElement = elemenyЕqualsIndex.getNext();
-                    DataList afreEkement = lockingForIndex(index + 1);
-                    afreEkement.setNext(beforElement);
-
-                    DataList element = head;
-                    for (int i = index; i <= head.getIndex(); i++){
-                        element.setIndex((element.getIndex() - 1));
-                        element = element.getNext();
-                    }
-                }
-            }
+        if(index == quentati){
+            head = head.getNext();
+            quentati--;
+            return;
+        }
+        DataList lokinForIndex = lockingForIndex(index);
+        DataList elementAfter = lokinForIndex.getNext();
+        DataList elementBefor = lockingForIndex(index + 1);
+        elementBefor.setNext(elementAfter);
+        quentati--;
     }
 
     @Override
@@ -65,10 +53,10 @@ public class SinglLinkedList  implements List  {
 
     @Override
     public void push(int element) {
-        ++this.index;
-        DataList dataList = new DataList(element,index);
+        DataList dataList = new DataList(element);
         dataList.setNext(head);
         head = dataList;
+        quentati++;
     }
 
     @Override // Хз поки, що тут зробити.
@@ -88,7 +76,7 @@ public class SinglLinkedList  implements List  {
 
     @Override
     public int size() {
-        return head.getIndex();
+        return quentati;
     }
 
     @Override
@@ -97,14 +85,16 @@ public class SinglLinkedList  implements List  {
     }
 
     private DataList lockingForIndex(int index){
-        DataList dataList = head;
-        if (dataList != null && head.getIndex() >= index)
-            for (int i = 0; i <= head.getIndex(); i++){
-                if (dataList.getIndex() == index){
-                    return dataList;
-                }
-                dataList = dataList.getNext();
+        DataList elementLoking = head;
+        int nowIndex = quentati;
+        for (int i = 0; i <= quentati; i++){
+            if (index == nowIndex){
+                return elementLoking;
             }
-        return null;
+            elementLoking = elementLoking.getNext();
+            nowIndex--;
+        }
+        return elementLoking;
     }
+
 }

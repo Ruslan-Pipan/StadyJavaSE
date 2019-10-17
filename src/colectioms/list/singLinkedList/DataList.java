@@ -2,12 +2,10 @@ package colectioms.list.singLinkedList;
 
 public class DataList {
     private int date;
-    private int index;
     private DataList next;
 
-    public DataList(int element, int index){
+    public DataList(int element){
         this.date = element;
-        this.index = index;
     }
 
     public DataList getNext() {
@@ -18,13 +16,6 @@ public class DataList {
         return date;
     }
 
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
-    public int getIndex() {
-        return index;
-    }
 
     public void setNext(DataList next) {
         this.next = next;
