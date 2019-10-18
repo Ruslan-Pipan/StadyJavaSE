@@ -29,8 +29,18 @@ public class SinglLinkedList  implements List  {
 
     @Override
     public void remove(int index) {
+        if(index > quentati){
+            System.out.println("Index haven't.");
+            return;
+        }
         if(index == quentati){
             head = head.getNext();
+            quentati--;
+            return;
+        }
+        if(index == 0){
+            DataList lokin = lockingForIndex(1);
+            lokin.setNext(null);
             quentati--;
             return;
         }
@@ -76,7 +86,7 @@ public class SinglLinkedList  implements List  {
 
     @Override
     public int size() {
-        return quentati;
+        return quentati + 1;
     }
 
     @Override
