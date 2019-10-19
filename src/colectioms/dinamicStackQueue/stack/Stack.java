@@ -1,8 +1,7 @@
-package colectioms.stack;
+package colectioms.dinamicStackQueue.stack;
+import colectioms.dinamicStackQueue.DinamickStack;
 
-import colectioms.Colection;
-
-public class Stack implements Colection {
+public class Stack implements DinamickStack {
 
     private int[] conteins;
     private static int quantity;

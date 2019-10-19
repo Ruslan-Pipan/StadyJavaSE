@@ -4,7 +4,7 @@ import colectioms.list.List;
 
 public class SinglLinkedList  implements List  {
     private DataList head;
-    private int quentati;
+    private int quentati = -1;
     public SinglLinkedList(){
         this.head = null;
         this.quentati = -1;
@@ -25,6 +25,34 @@ public class SinglLinkedList  implements List  {
         }else {
             System.out.println("Last index in which we add element is " + (quentati+1) );
         }
+    }
+
+    @Override
+    public int get(int index) {
+        if (index > quentati)
+            return -1;
+        if (index == quentati)
+            return head.getDate();
+        if (index == 0){
+            DataList element = lockingForIndex(0);
+            return element.getDate();
+        }
+
+        DataList element = lockingForIndex(index);
+        return  element.getDate();
+
+    }
+
+    @Override
+    public boolean isHas(int element) {
+        if (element == head.getDate())
+            return true;
+        DataList lockingElement = lockingForIndex(0);
+        if(lockingElement.getDate() == element)
+            return true;
+        int lockinElement = lockingForelement(element);
+
+        return lockinElement >= 0;
     }
 
     @Override
@@ -69,16 +97,6 @@ public class SinglLinkedList  implements List  {
         quentati++;
     }
 
-    @Override // Хз поки, що тут зробити.
-    public int pop() {
-        return head.getDate();
-    }
-
-    @Override
-    public int top() {
-        return head.getDate();
-    }
-
     @Override
     public boolean isEmty() {
         return head == null;
@@ -94,8 +112,28 @@ public class SinglLinkedList  implements List  {
         head = null;
     }
 
+    private int lockingForelement(int element){
+        DataList lockingElement = head;
+        if (head.getDate() == element)
+            return lockingElement.getDate();
+        lockingElement = lockingForIndex(0);
+        if (lockingForIndex(0).getDate() == element)
+            return lockingElement.getDate();
+        for (int i = 1; i < quentati; i++){
+            lockingElement = lockingForIndex(i);
+            if (lockingElement.getDate() == element)
+                return lockingElement.getDate();
+        }
+        return -1;
+    }
+
     private DataList lockingForIndex(int index){
         DataList elementLoking = head;
+        if(index == quentati)
+            return elementLoking;
+        if (index == 0)
+            return lockingForIndex(0);
+
         int nowIndex = quentati;
         for (int i = 0; i <= quentati; i++){
             if (index == nowIndex){
@@ -104,7 +142,7 @@ public class SinglLinkedList  implements List  {
             elementLoking = elementLoking.getNext();
             nowIndex--;
         }
-        return elementLoking;
+        return null;
     }
 
 }

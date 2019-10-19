@@ -5,6 +5,8 @@ import colectioms.list.singLinkedList.DataList;
 
 public interface List extends Colection {
     void addByIndex(int element, int index);
+    int get(int index);
+    boolean isHas(int element);
     void remove(int index);
     void print();
 }
