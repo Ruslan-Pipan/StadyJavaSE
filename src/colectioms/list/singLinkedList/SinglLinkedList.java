@@ -37,7 +37,6 @@ public class SinglLinkedList  implements List  {
             DataList element = lockingForIndex(0);
             return element.getDate();
         }
-
         DataList element = lockingForIndex(index);
         return  element.getDate();
 
@@ -131,8 +130,6 @@ public class SinglLinkedList  implements List  {
         DataList elementLoking = head;
         if(index == quentati)
             return elementLoking;
-        if (index == 0)
-            return lockingForIndex(0);
 
         int nowIndex = quentati;
         for (int i = 0; i <= quentati; i++){

@@ -17,8 +17,5 @@ public class Main {
         list.push(3); //3
         list.push(4); //4
 
-        list.remove(1);
-        System.out.println(list.isHas(3));
-        list.print();
     }
 }
