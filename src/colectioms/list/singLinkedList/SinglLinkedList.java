@@ -18,6 +18,8 @@ public class SinglLinkedList  implements List  {
             DataList boxAfterElement = elemenyЕqualsIndex.getNext();
             newElement.setNext(boxAfterElement);
             elemenyЕqualsIndex.setNext(newElement);
+            newElement.setIndex(index);
+            changeIndex(newElement,'+');
             ++quentati;
             return true;
         }else if(index == quentati + 1) {
@@ -60,9 +62,11 @@ public class SinglLinkedList  implements List  {
         DataList lockingElement = lockingForIndex(0);
         if(lockingElement.getDate() == element)
             return true;
-        int lockinElement = lockingForelement(element);
-
-        return lockinElement >= 0;
+        lockingElement = lockingForelement(element);
+        if (lockingElement != null){
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -79,6 +83,7 @@ public class SinglLinkedList  implements List  {
             DataList lokin = lockingForIndex(1);
             lokin.setNext(null);
             quentati--;
+            changeIndex(lokin,'-');
             return true;
         }
         DataList lokinForIndex = lockingForIndex(index);
@@ -86,14 +91,21 @@ public class SinglLinkedList  implements List  {
         DataList elementBefor = lockingForIndex(index + 1);
         elementBefor.setNext(elementAfter);
         quentati--;
+        changeIndex(elementBefor,'-');
         return true;
+    }
+
+    @Override
+    public int indexOf(int element) {
+
+        return 0;
     }
 
     @Override
     public void print() {
         DataList element = head;
         while (element != null){
-            System.out.println(element.getDate());
+            System.out.println(element.getDate() + " " + element.getIndex());
             element = element.getNext();
         }
     }
@@ -105,6 +117,7 @@ public class SinglLinkedList  implements List  {
         dataList.setNext(head);
         head = dataList;
         quentati++;
+        dataList.setIndex(quentati);
         return true;
     }
 
@@ -128,19 +141,19 @@ public class SinglLinkedList  implements List  {
         return false;
     }
 
-    private int lockingForelement(int element){
+    private DataList lockingForelement(int element){
         DataList lockingElement = head;
         if (head.getDate() == element)
-            return lockingElement.getDate();
+            return lockingElement;
         lockingElement = lockingForIndex(0);
         if (lockingForIndex(0).getDate() == element)
-            return lockingElement.getDate();
+            return lockingElement;
         for (int i = 1; i < quentati; i++){
             lockingElement = lockingForIndex(i);
             if (lockingElement.getDate() == element)
-                return lockingElement.getDate();
+                return lockingElement;
         }
-        return -1;
+        return null;
     }
 
     private DataList lockingForIndex(int index){
