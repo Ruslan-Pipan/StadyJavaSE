@@ -97,8 +97,10 @@ public class SinglLinkedList  implements List  {
 
     @Override
     public int indexOf(int element) {
-
-        return 0;
+        DataList dataList = lockingForelement(element);
+        if (dataList != null)
+            return dataList.getIndex();
+        return -1;
     }
 
     @Override

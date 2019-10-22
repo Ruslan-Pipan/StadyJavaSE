@@ -9,5 +9,6 @@ public interface List extends Colection {
     int get(int E);
     boolean isHas(int element);
     boolean remove(int index);
+    int indexOf(int element);
     void print();
 }
