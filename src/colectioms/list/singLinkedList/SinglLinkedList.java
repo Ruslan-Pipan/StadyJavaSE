@@ -172,4 +172,29 @@ public class SinglLinkedList  implements List  {
         return null;
     }
 
+    private void changeIndex(DataList element, char choise){
+        int index = element.getIndex();
+        DataList dataList = head;
+        switch (choise){
+            case '-':
+                while (true){
+                    if (dataList.getIndex() == index)
+                        break;
+                    dataList.setIndex(dataList.getIndex() - 1);
+                    dataList = dataList.getNext();
+                }
+                dataList.setIndex(index - 1);
+                break;
+            case '+':
+                while (true){
+                    if (dataList.getIndex() == index)
+                        break;
+                    dataList.setIndex(dataList.getIndex() + 1);
+                    dataList = dataList.getNext();
+                }
+                dataList.setIndex(index + 1);
+                break;
+        }
+    }
+
 }
