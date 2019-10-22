@@ -15,12 +15,14 @@ public class Queue implements DinamickStack {
     }
 
     @Override
-    public void push(int element) {
+    public boolean push(int element) {
         if (fail + 1 < contains.length){
             contains[fail++] = element;
+            return true;
         }else {
             increaseArray();
             contains[fail++] = element;
+            return true;
         }
     }
 
@@ -60,6 +62,12 @@ public class Queue implements DinamickStack {
         contains = new int[START_SIZE];
         fail = 0;
     }
+
+    @Override
+    public boolean equals() {
+        return false;
+    }
+
     private void increaseArray(){
         int[] arrayBox = new int[fail];
         for (int i = 0; i < fail; i++){

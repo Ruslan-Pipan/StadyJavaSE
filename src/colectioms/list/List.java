@@ -1,12 +1,13 @@
 package colectioms.list;
 
 import colectioms.Colection;
-import colectioms.list.singLinkedList.DataList;
+
 
 public interface List extends Colection {
-    void addByIndex(int element, int index);
-    int get(int index);
+    boolean add(int element, int index);
+    boolean set(int index, int elemeny);
+    int get(int E);
     boolean isHas(int element);
-    void remove(int index);
+    boolean remove(int index);
     void print();
 }

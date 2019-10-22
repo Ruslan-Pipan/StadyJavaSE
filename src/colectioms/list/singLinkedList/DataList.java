@@ -1,23 +1,28 @@
 package colectioms.list.singLinkedList;
 
-public class DataList {
+  class DataList {
     private int date;
     private DataList next;
 
-    public DataList(int element){
+     DataList(int element){
         this.date = element;
     }
 
-    public DataList getNext() {
+      DataList getNext() {
         return next;
     }
 
-    public int getDate() {
+      void setDate(int date) {
+        this.date = date;
+    }
+
+     int getDate() {
         return date;
     }
 
 
-    public void setNext(DataList next) {
+     void setNext(DataList next) {
         this.next = next;
     }
+
 }

@@ -12,12 +12,14 @@ public class Stack implements DinamickStack {
     }
 
     @Override
-    public void push(int element) {
+    public boolean push(int element) {
         if (quantity < conteins.length){
             conteins[quantity++] = element;
-        }else {
+            return true;
+        }else{
             increaseArray();
             conteins[quantity++] = element;
+            return true;
         }
     }
 
@@ -47,6 +49,12 @@ public class Stack implements DinamickStack {
         conteins = new int[SIZE_START];
         quantity = 0;
     }
+
+    @Override
+    public boolean equals() {
+        return false;
+    }
+
     @Override
     public int size(){ return quantity; }
 

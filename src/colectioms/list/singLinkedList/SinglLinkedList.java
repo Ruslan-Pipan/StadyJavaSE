@@ -11,7 +11,7 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public void addByIndex(int element, int index) {
+    public boolean add(int element, int index) {
         DataList elemenyЕqualsIndex = lockingForIndex(index);
         if (elemenyЕqualsIndex != null){
             DataList newElement = new DataList(element);
@@ -19,12 +19,23 @@ public class SinglLinkedList  implements List  {
             newElement.setNext(boxAfterElement);
             elemenyЕqualsIndex.setNext(newElement);
             ++quentati;
-            return;
+            return true;
         }else if(index == quentati + 1) {
             push(element);
+            return true;
         }else {
-            System.out.println("Last index in which we add element is " + (quentati+1) );
+            return false;
         }
+    }
+
+    @Override
+    public boolean set(int index, int element) {
+        DataList lockinElenent = lockingForIndex(index);
+        if (lockinElenent == null){
+            return false;
+        }
+        lockinElenent.setDate(element);
+        return true;
     }
 
     @Override
@@ -55,27 +66,27 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public void remove(int index) {
+    public boolean remove(int index) {
         if(index > quentati){
-            System.out.println("Index haven't.");
-            return;
+            return false;
         }
         if(index == quentati){
             head = head.getNext();
             quentati--;
-            return;
+            return true;
         }
         if(index == 0){
             DataList lokin = lockingForIndex(1);
             lokin.setNext(null);
             quentati--;
-            return;
+            return true;
         }
         DataList lokinForIndex = lockingForIndex(index);
         DataList elementAfter = lokinForIndex.getNext();
         DataList elementBefor = lockingForIndex(index + 1);
         elementBefor.setNext(elementAfter);
         quentati--;
+        return true;
     }
 
     @Override
@@ -89,11 +100,12 @@ public class SinglLinkedList  implements List  {
 
 
     @Override
-    public void push(int element) {
+    public boolean push(int element) {
         DataList dataList = new DataList(element);
         dataList.setNext(head);
         head = dataList;
         quentati++;
+        return true;
     }
 
     @Override
@@ -109,6 +121,11 @@ public class SinglLinkedList  implements List  {
     @Override
     public void clear() {
         head = null;
+    }
+
+    @Override
+    public boolean equals() {
+        return false;
     }
 
     private int lockingForelement(int element){
