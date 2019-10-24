@@ -2,9 +2,10 @@ package colectioms.list.singLinkedList;
 
 import colectioms.list.List;
 
-public class SinglLinkedList  implements List  {
+public class SinglLinkedList<E>  implements List<E>  {
     private DataList head;
     private int quentati = -1;
+
     public SinglLinkedList(){
         this.head = null;
         this.quentati = -1;
@@ -12,10 +13,10 @@ public class SinglLinkedList  implements List  {
 
     class DataList{
         private int index;
-        private int date;
+        private E date;
         private DataList next;
 
-        DataList(int element){
+        DataList(E element){
             this.date = element;
             this.index = -1;
         }
@@ -32,11 +33,11 @@ public class SinglLinkedList  implements List  {
             return next;
         }
 
-        void setDate(int date) {
+        void setDate(E date) {
             this.date = date;
         }
 
-        int getDate() {
+        E getDate() {
             return date;
         }
 
@@ -47,7 +48,7 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public boolean add(int element, int index) {
+    public boolean add(E element, int index) {
         DataList elemenyЕqualsIndex = lockingForIndex(index);
         if (elemenyЕqualsIndex != null){
             DataList newElement = new DataList(element);
@@ -59,15 +60,14 @@ public class SinglLinkedList  implements List  {
             ++quentati;
             return true;
         }else if(index == quentati + 1) {
-            push(element);
-            return true;
+            return add(element);
         }else {
             return false;
         }
     }
 
     @Override
-    public boolean set(int index, int element) {
+    public boolean set(int index, E element) {
         DataList lockinElenent = lockingForIndex(index);
         if (lockinElenent == null){
             return false;
@@ -77,9 +77,9 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public int get(int index) {
+    public E get(int index) {
         if (index > quentati)
-            return -1;
+            return null;
         if (index == quentati)
             return head.getDate();
         if (index == 0){
@@ -92,7 +92,7 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public boolean isHas(int element) {
+    public boolean isHas(E element) {
         if (element == head.getDate())
             return true;
         DataList lockingElement = lockingForIndex(0);
@@ -132,7 +132,7 @@ public class SinglLinkedList  implements List  {
     }
 
     @Override
-    public int indexOf(int element) {
+    public int indexOf(E element) {
         DataList dataList = lockingForelement(element);
         if (dataList != null)
             return dataList.getIndex();
@@ -150,7 +150,7 @@ public class SinglLinkedList  implements List  {
 
 
     @Override
-    public boolean push(int element) {
+     public boolean add(E element) {
         DataList dataList = new DataList(element);
         dataList.setNext(head);
         head = dataList;
@@ -158,6 +158,7 @@ public class SinglLinkedList  implements List  {
         dataList.setIndex(quentati);
         return true;
     }
+
 
     @Override
     public boolean isEmty() {
@@ -179,7 +180,7 @@ public class SinglLinkedList  implements List  {
         return false;
     }
 
-    private DataList lockingForelement(int element){
+    private DataList lockingForelement(E element){
         DataList lockingElement = head;
         if (head.getDate() == element)
             return lockingElement;
