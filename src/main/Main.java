@@ -1,21 +1,26 @@
 package main;
 
-import colectioms.Colection;
-import colectioms.list.List;
+import algoritms.sort.Insertion;
+import algoritms.sort.Sort;
+
 import colectioms.list.singLinkedList.SinglLinkedList;
-import colectioms.dinamicStackQueue.queue.Queue;
 
 public class Main {
     public static void main(String[] args) {
-        Colection colection = new Queue();
-        List list = new SinglLinkedList();
-
-
-        list.push(0); //0
-        list.push(1); //1
-        list.push(2); //2
-        list.push(3); //3
-        list.push(4); //4
-
+        SinglLinkedList<Person> list = new SinglLinkedList<>();
+        int[] mas = new int[8];
+        mas[0] = 4;
+        mas[1] = 2;
+        mas[2] = 6;
+        mas[3] = 8;
+        mas[4] = 1;
+        mas[5] = 3;
+        mas[6] = 7;
+        mas[7] = 5;
+        Sort sort = new Insertion();
+        sort.sort(mas);
+        for (int i = 0; i< mas.length; i++){
+            System.out.println(mas[i]);
+        }
     }
 }

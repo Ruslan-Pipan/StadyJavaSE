@@ -1,9 +1,8 @@
 package colectioms;
 
-public interface Colection {
-    public boolean push(int element);
-    public boolean isEmty();
-    public int size();
-    public void clear();
+public interface Colection<E> {
+    boolean isEmty();
+    int size();
+    void clear();
     boolean equals();
 }
