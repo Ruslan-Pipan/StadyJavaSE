@@ -2,27 +2,17 @@ package tasks.serialization;
 
 import java.io.Serializable;
 
-public class Animal implements Serializable {
+public class Animal {
 
-    private String name;
     private int age;
     private int weith;
 
     public Animal() {
     }
 
-    public Animal(String name, int age, int weith) {
-        this.name = name;
+    public Animal(int age, int weith) {
         this.age = age;
         this.weith = weith;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getAge() {
@@ -44,7 +34,6 @@ public class Animal implements Serializable {
     @Override
     public String toString() {
         return "Animal{" +
-                "name='" + name + '\'' +
                 ", age=" + age +
                 ", weith=" + weith +
                 '}';
