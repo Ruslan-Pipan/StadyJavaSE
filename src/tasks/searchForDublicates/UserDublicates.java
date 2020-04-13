@@ -1,4 +1,4 @@
-package task.searchForDublicates;
+package tasks.searchForDublicates;
 
 import java.util.*;
 

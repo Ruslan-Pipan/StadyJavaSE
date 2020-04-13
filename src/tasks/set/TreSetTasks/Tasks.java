@@ -1,4 +1,4 @@
-package tasks.Set.TreSetTasks;
+package tasks.set.TreSetTasks;
 
 import java.util.*;
 
@@ -15,7 +15,7 @@ public class Tasks {
             set.add(i);
         }
     }
-    
+
     public Integer getNexElement(Integer elem){
          return set.higher(elem);
     }

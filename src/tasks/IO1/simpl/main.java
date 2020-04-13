@@ -1,4 +1,4 @@
-package tasks.IO1;
+package tasks.IO1.simpl;
 
 import java.io.*;
 
@@ -8,7 +8,7 @@ import java.io.*;
 * */
 public class main {
     public static void main(String[] args) {
-        File file = new File("D:\\Навчання\\Colections\\src\\tasks\\IO1\\tex.txt");
+        File file = new File("D:\\Навчання\\Colections\\src\\tasks\\IO1\\simpl\\tex.txt");
         try (FileInputStream fileInputStream = new FileInputStream(file);
              FileOutputStream fileOutputStream = new FileOutputStream(file)
         ){

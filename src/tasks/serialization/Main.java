@@ -11,6 +11,9 @@ public class Main {
             ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(f))
         ){
             outputStream.writeObject(elephant);
+
+            Elephant.setEays(10);
+
             newElephant = (Elephant)inputStream.readObject();
             System.out.println(newElephant);
 
@@ -18,6 +21,7 @@ public class Main {
             e.printStackTrace();
         }
 
+        System.out.println("Aye = " + Elephant.getEays());
 
     }
 

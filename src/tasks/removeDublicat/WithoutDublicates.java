@@ -2,7 +2,7 @@
 *Напишите метод, который на вход получает коллекцию объектов, а возвращает коллекцию уже без дубликатов.
 * */
 
-package task.removeDublicat;
+package tasks.removeDublicat;
 import java.util.Collection;
 import java.util.HashSet;
 

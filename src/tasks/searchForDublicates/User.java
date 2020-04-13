@@ -5,7 +5,7 @@ public static List<User> findDuplicates(Collection<User> collA, Collection<User>
 По производительности: метод findDuplicates должен работать не больше нескольких секунд, если на вход получает 2 коллекции по 100 тысяч элементов в каждой. То есть, простой перебор в цикле не подойдёт.
 Пользоваться можно только стандартными классами Java SE
 * */
-package task.searchForDublicates;
+package tasks.searchForDublicates;
 
 import java.util.Arrays;
 

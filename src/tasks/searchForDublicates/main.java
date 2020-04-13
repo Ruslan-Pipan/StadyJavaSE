@@ -1,11 +1,7 @@
-package task.searchForDublicates;
-
-import colectioms.Colection;
-import org.omg.CORBA.UserException;
+package tasks.searchForDublicates;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 public  class main {

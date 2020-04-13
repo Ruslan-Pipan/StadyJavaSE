@@ -29,11 +29,13 @@ public class Elephant extends Animal implements Serializable {
 
     private void writeObject(ObjectOutputStream oos) throws IOException {
         oos.defaultWriteObject();
+        oos.writeInt(eays);
         oos.writeInt(getWeith());
         oos.writeInt(getAge());
     }
     private void readObject(ObjectInputStream ois) throws IOException, ClassNotFoundException{
         ois.defaultReadObject();
+        eays = ois.readInt();
         setWeith(ois.readInt());
         setAge(ois.readInt());
     }
