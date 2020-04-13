@@ -26,11 +26,7 @@ public class Main {
         threadBANANNAS.start();
         threadTunel.start();
 
-
-        generatorShips.newGeberator(new GeneratorShips(9));
-
-
-
+        
         threadCLOTHINGS.join();
         threadBOOKS.join();
         threadBANANNAS.join();

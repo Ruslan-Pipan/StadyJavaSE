@@ -22,7 +22,7 @@ public class Tunel implements Runnable{
     public synchronized void run() {
         if (queue.size() == 0)
             queue = ships.getQueueShips();
-        if (queue.size() > 5)
+        if (queue.size() != 0)
             notifyAll();
     }
 }

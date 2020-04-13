@@ -13,7 +13,7 @@ public class GeneratorShips {
         generatorShips(howManyShips);
     }
 
-    public void newGeberator(GeneratorShips generatorShips){
+    public synchronized void newGeberator(GeneratorShips generatorShips){
         deque.addAll(generatorShips.getDeque());
     }
     private void generatorShips(int size){
