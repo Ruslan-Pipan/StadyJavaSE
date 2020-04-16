@@ -1,6 +1,5 @@
 package tasks.multithreading.concurrency1;
 
-import javax.naming.InsufficientResourcesException;
 import java.util.concurrent.TimeUnit;
 
 public class Operations {
@@ -31,13 +30,13 @@ public class Operations {
                 if (account2.getLock().tryLock(3,TimeUnit.SECONDS)){
                     account1.withdraw(amount);
                     account2.desposit(amount);
-                }
+                }else {account2.incFailedTrasferCount();}
                 System.out.println("Tranfer finish");
             }finally {
                 account1.getLock().unlock();
             }
         }else {
-            System.out.println("Fail");
+            account1.incFailedTrasferCount();
         }
     }
 }
