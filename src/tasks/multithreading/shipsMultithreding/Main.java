@@ -1,6 +1,6 @@
-package tasks.shipsMultithreding;
+package tasks.multithreading.shipsMultithreding;
 
-import tasks.shipsMultithreding.enums.ShipType;
+import tasks.multithreading.shipsMultithreding.enums.ShipType;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -26,7 +26,7 @@ public class Main {
         threadBANANNAS.start();
         threadTunel.start();
 
-        
+
         threadCLOTHINGS.join();
         threadBOOKS.join();
         threadBANANNAS.join();

@@ -1,4 +1,4 @@
-package tasks.shipsMultithreding;
+package tasks.multithreading.shipsMultithreding;
 
 import java.util.Queue;
 

@@ -1,7 +1,7 @@
-package tasks.shipsMultithreding;
+package tasks.multithreading.shipsMultithreding;
 
-import tasks.shipsMultithreding.enums.ShipSize;
-import tasks.shipsMultithreding.enums.ShipType;
+import tasks.multithreading.shipsMultithreding.enums.ShipSize;
+import tasks.multithreading.shipsMultithreding.enums.ShipType;
 
 import java.util.Deque;
 import java.util.LinkedList;

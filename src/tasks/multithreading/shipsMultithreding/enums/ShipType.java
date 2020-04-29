@@ -1,4 +1,4 @@
-package tasks.shipsMultithreding.enums;
+package tasks.multithreading.shipsMultithreding.enums;
 
 public enum ShipType {
     BANANNAS("Banannas"), CLOTHINGS("Clothings"), BOOKS("Books");

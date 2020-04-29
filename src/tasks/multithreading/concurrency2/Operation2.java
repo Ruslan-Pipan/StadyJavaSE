@@ -3,9 +3,9 @@ package tasks.multithreading.concurrency2;
 import tasks.multithreading.concurrency1.Account;
 
 import java.util.Random;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class Operation2 {
@@ -13,6 +13,8 @@ public class Operation2 {
         ExecutorService service = Executors.newFixedThreadPool(3);
         Account account1 = new Account(1000);
         Account account2 = new Account(10);
+        CountDownLatch countDownLatch = new CountDownLatch(1);
+
 
         Random random = new Random();
         for (int i =0; i <10; i++){

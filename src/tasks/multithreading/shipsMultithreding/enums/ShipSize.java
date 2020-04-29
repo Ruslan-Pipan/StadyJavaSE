@@ -1,4 +1,4 @@
-package tasks.shipsMultithreding.enums;
+package tasks.multithreading.shipsMultithreding.enums;
 
 public enum ShipSize {
     TEN(10), FIFTY(50), HUNDRET(100);
