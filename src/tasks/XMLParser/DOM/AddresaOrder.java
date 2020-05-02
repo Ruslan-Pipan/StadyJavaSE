@@ -9,6 +9,8 @@ public class AddresaOrder {
     private int zipe = 0;
     private String country = null;
 
+    public AddresaOrder(){}
+
     public AddresaOrder(String type, String name, String streat, String sity, String statel, int zipe, String country) {
         this.type = type;
         this.name = name;

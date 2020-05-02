@@ -1,4 +1,4 @@
-package tasks.XMLParser.JAXB;
+package tasks.XMLParser.JAXB_t;
 
 
 import javax.xml.bind.annotation.*;
